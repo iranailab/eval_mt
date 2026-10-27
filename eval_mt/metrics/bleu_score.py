@@ -1,6 +1,8 @@
 import math
-from .tool.n_gram import ngrams
+
 from .tool.counter_element import counter_element
+from .tool.n_gram import ngrams
+
 
 class bleu:
 	def __init__(self, min_n_gram = 1, max_n_gram = 4):
@@ -20,7 +22,8 @@ class bleu:
 		clipped_precision = list()
 		for n in range(0, self.max_n_gram):
 			clipped_count = self._clipped_count(refs_ngram_count[n], pred_ngram_count[n])
-			clipped_precision.append(clipped_count / sum(pred_ngram_count[n].values()))
+			total = sum(pred_ngram_count[n].values())
+			clipped_precision.append(clipped_count / total if total else 0)
 
 
 		db = 0

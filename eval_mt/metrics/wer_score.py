@@ -1,5 +1,6 @@
-import numpy as np
 import string
+
+import numpy as np
 
 
 class wer:
@@ -43,7 +44,7 @@ class wer:
         self.backtrace[0][:] = 2
 
         costs[:, 0] = [j for j in range(0, len(self.pred) + 1)]
-        self.backtrace[:][0] = 3
+        self.backtrace[:, 0] = 3
 
         self.backtrace[0][0] = 10  # None
 

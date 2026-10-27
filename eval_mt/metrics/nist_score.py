@@ -1,10 +1,9 @@
 import math
-from .tool.n_gram import ngrams
+
 from .tool.counter_element import counter_element
+from .tool.n_gram import ngrams
 from .tool.overlaps_dict import overlaps_dict
 
-
-import math
 
 class nist:
   def __init__(self, n = 5):
@@ -34,7 +33,7 @@ class nist:
         overlaps_ngram = overlaps_dict(ref_count_gram, pred_coumt_gram)
         numerator = sum([info[n_gram] * count for n_gram, count in overlaps_ngram.items()])
         denominator = sum(pred_coumt_gram.values())
-        nist_precisions.append(numerator / denominator)
+        nist_precisions.append(numerator / denominator if denominator else 0)
       nist_score.append(max(nist_precisions))
       ref_lenght += len(refs[nist_precisions.index(max(nist_precisions))].split())
 

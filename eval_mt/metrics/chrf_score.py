@@ -1,10 +1,8 @@
-from .tool.n_gram import ngrams
-from .tool.counter_element import counter_element
-from .tool.overlaps_dict import overlaps_dict
 import string
 
-
-
+from .tool.counter_element import counter_element
+from .tool.n_gram import ngrams
+from .tool.overlaps_dict import overlaps_dict
 
 
 class chrf:
