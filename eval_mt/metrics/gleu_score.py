@@ -1,6 +1,5 @@
-import math
-from .tool.n_gram import ngrams
 from .tool.counter_element import counter_element
+from .tool.n_gram import ngrams
 from .tool.overlaps_dict import overlaps_dict
 
 

@@ -1,5 +1,4 @@
-from nltk.corpus import WordNetCorpusReader, wordnet
-from nltk.stem.api import StemmerI
+from nltk.corpus import wordnet
 from nltk.stem.porter import PorterStemmer
 
 
@@ -29,7 +28,6 @@ class meteor:
 		ref_lenght = len(ref.split())
 		pred_lenght = len(pred.split())
 		matches_lenght = len(all_marches)
-		chunk = self._chunks(all_marches)
 		try:
 			precision = matches_lenght / pred_lenght
 			recall = matches_lenght / ref_lenght
@@ -72,7 +70,7 @@ class meteor:
 			pred_synonymm = set(pred_synonymm)
 
 			for index_ref in range(0, len(ref_num_word))[::-1]:
-				if ref_num_word[index_ref] in pred_synonymm:
+				if ref_num_word[index_ref][1] in pred_synonymm:
 					matching_word_by_word.append(tuple([pred_num_word[index_pred][0], ref_num_word[index_ref][0]]))
 					ref_num_word.pop(index_ref)
 					pred_num_word.pop(index_pred)
