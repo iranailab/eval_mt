@@ -60,7 +60,7 @@ jobs:
           eval-mt score -r "the cat is on the mat" -H "the cat sat on the mat" --json
       - name: Upload coverage
         if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.12'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage
           path: coverage.xml
@@ -81,7 +81,7 @@ jobs:
         run: |
           pip install dist/*.whl
           eval-mt list
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
